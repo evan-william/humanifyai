@@ -1,0 +1,14 @@
+{
+  "include": ["."],
+  "exclude": [
+    ".venv",
+    "venv",
+    "**/__pycache__"
+  ],
+  "pythonVersion": "3.11",
+  "pythonPlatform": "All",
+  "typeCheckingMode": "basic",
+  "reportMissingImports": "none",
+  "venvPath": ".",
+  "venv": ".venv"
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HumanifyAI — Make AI Text Sound Human</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/main.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <div class="logo">
+        <span class="logo-mark">H</span>
+        <span class="logo-text">HumanifyAI</span>
+      </div>
+      <nav class="nav">
+        <a href="/api/docs" target="_blank" rel="noopener">API Docs</a>
+        <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main">
+    <section class="hero">
+      <h1>Transform AI Text Into Natural Writing</h1>
+      <p class="hero-sub">Analyze and rewrite AI-generated content so it reads the way people actually write, with real-time linguistic scoring.</p>
+    </section>
+
+    <div class="panel-grid">
+      <!-- Input -->
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Input Text</h2>
+          <span class="char-count" id="charCount">0 / 10,000</span>
+        </div>
+        <textarea
+          id="inputText"
+          class="text-area"
+          placeholder="Paste AI-generated text here..."
+          maxlength="10000"
+          spellcheck="false"
+        ></textarea>
+
+        <div class="options-row">
+          <label class="toggle">
+            <input type="checkbox" id="optContractions" checked />
+            <span>Contractions</span>
+          </label>
+          <label class="toggle">
+            <input type="checkbox" id="optFormal" checked />
+            <span>Simplify formal words</span>
+          </label>
+          <label class="toggle">
+            <input type="checkbox" id="optVariety" checked />
+            <span>Sentence variety</span>
+          </label>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-secondary" id="analyzeBtn">Analyze Only</button>
+          <button class="btn btn-primary" id="transformBtn">Humanize Text</button>
+        </div>
+      </div>
+
+      <!-- Output -->
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Output</h2>
+          <button class="btn-copy" id="copyBtn" title="Copy to clipboard" style="display:none;">Copy</button>
+        </div>
+        <div class="output-placeholder" id="outputPlaceholder">
+          <p>Your transformed text will appear here.</p>
+        </div>
+        <textarea id="outputText" class="text-area" style="display:none;" readonly spellcheck="false"></textarea>
+      </div>
+    </div>
+
+    <!-- Score cards -->
+    <div class="score-section" id="scoreSection" style="display:none;">
+      <div class="score-card" id="beforeCard">
+        <div class="score-label">Before</div>
+        <div class="score-value" id="beforeScore">—</div>
+        <div class="score-grade" id="beforeGrade">—</div>
+        <div class="score-meta" id="beforeMeta"></div>
+      </div>
+
+      <div class="score-arrow">→</div>
+
+      <div class="score-card score-card--after" id="afterCard" style="display:none;">
+        <div class="score-label">After</div>
+        <div class="score-value" id="afterScore">—</div>
+        <div class="score-grade" id="afterGrade">—</div>
+        <div class="improvement" id="improvement"></div>
+      </div>
+    </div>
+
+    <!-- Suggestions -->
+    <div class="suggestions-section" id="suggestionsSection" style="display:none;">
+      <h3>Suggestions</h3>
+      <ul class="suggestions-list" id="suggestionsList"></ul>
+    </div>
+
+    <!-- Feature breakdown -->
+    <div class="features-section" id="featuresSection" style="display:none;">
+      <h3>Feature Breakdown</h3>
+      <div class="features-grid" id="featuresGrid"></div>
+    </div>
+
+    <!-- Error banner -->
+    <div class="error-banner" id="errorBanner" style="display:none;">
+      <span id="errorMsg"></span>
+      <button onclick="document.getElementById('errorBanner').style.display='none'">×</button>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>HumanifyAI — Text is processed in memory and never stored. (By Evan William)</p>
+    </div>
+  </footer>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
