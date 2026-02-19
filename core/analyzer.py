@@ -224,7 +224,7 @@ class HumanLikenessAnalyzer:
         tips: List[str] = []
 
         if features.sentence_length_variance < 20:
-            tips.append("Vary your sentence lengths more — mix short punchy sentences with longer ones.")
+            tips.append("Vary your sentence lengths more, mix short punchy sentences with longer ones.")
         if features.contraction_rate < 0.005:
             tips.append("Add contractions (it's, don't, you'll) for a more conversational tone.")
         if features.avg_sentence_length > 25:
